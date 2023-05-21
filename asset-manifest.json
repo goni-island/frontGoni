@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/frontGoni/static/css/main.cbeafe1b.css",
+    "main.js": "/frontGoni/static/js/main.1399c387.js",
+    "static/js/787.420d3a65.chunk.js": "/frontGoni/static/js/787.420d3a65.chunk.js",
+    "index.html": "/frontGoni/index.html",
+    "main.cbeafe1b.css.map": "/frontGoni/static/css/main.cbeafe1b.css.map",
+    "main.1399c387.js.map": "/frontGoni/static/js/main.1399c387.js.map",
+    "787.420d3a65.chunk.js.map": "/frontGoni/static/js/787.420d3a65.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cbeafe1b.css",
+    "static/js/main.1399c387.js"
+  ]
+}
