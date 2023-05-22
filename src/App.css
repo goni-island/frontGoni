@@ -1,3 +1,9 @@
+#root{
+  --color-green:#023020;
+  --width-table:80vw;
+  --color-background:rgb(234, 230, 230);
+}
+
 .App {
   text-align: center;
 }
@@ -21,7 +27,6 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
@@ -58,8 +63,8 @@ color:Black;
   color:black;
   width: 80vw;
   background-color:rgb(234, 230, 230);
-  padding:20px;
-  border-radius: 5px;
+  padding:10px;
+  border-radius: 10px;
   color:black;
 }
 .EmpName{
@@ -78,4 +83,132 @@ color:Black;
 
 .eachBox{
 margin:10px;
+}
+
+.tbData{
+  width: var(--width-table);
+  background-color: rgb(234, 230, 230);
+  padding-top:20px;
+  padding-bottom:20px;
+  padding-left:10px;
+  padding-right:10px;
+  border-radius: 10px;
+}
+
+.btnAdd{
+  width:100%;
+  padding : 10px;
+  border-radius: 10px;
+  border:solid;
+  margin-top :30px;
+}
+
+.infoData{
+  width:100%;
+}
+
+/* the one abvoe list of table */
+.headList{
+  color: white;
+  background-color: black;
+  margin-bottom:10px;
+  padding:0px;
+  width: 80vw;
+  padding-top:20px;
+  padding-bottom:20px;
+  padding-left:10px;
+  padding-right:10px;
+  border-radius: 10px;
+}
+
+h3{
+  padding:0;
+  margin:0;
+}
+
+.headTb{
+  background-color: var(--color-green);
+  color : white;
+  font-size: 25px;
+}
+
+.BtnBox{
+  width: 40%;
+  margin-right:5px;
+  color : 
+}
+
+
+
+/* addEmployeePAge */
+.Btnsub{
+  width:100%;
+  background-color: var(--color-green);
+  padding :5px;
+  margin-top: 10px;
+  color:white;
+  font-size:20px;
+  font-weight:bold;
+}
+
+
+/* each Emp */
+
+.empInfo{
+  color: white;
+  background-color: black;
+  width: 80vw;
+  padding-top:  20px;
+  padding-bottom: 20px;
+  border-radius: 10px;
+  margin-bottom:10px;
+}
+.eachBox{
+  width:var(--width-table);
+  background-color: var(--color-background);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.test{
+  width:var(--width-table);
+  background-color: var(--color-background);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding:0;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  
+}
+.test1{
+  width:23%;
+  background-color: var(--color-green);
+  margin-right: 5px;
+  border-radius: 5px;
+  color:white;
+  /* font-size: 15px; */
+}
+.test2{
+  width:75%;
+  border-color: black;
+  border:solid;
+  border-radius: 5px;
+}
+
+.buttest{
+  width:calc(var(--width-table)*0.98);
+  border: solid;
+  border-color: black;
+  border-radius: 5px;
+  padding : 10px;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
 }
