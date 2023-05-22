@@ -10,23 +10,25 @@ import EmployeesView from "./view/EmployeesView";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import EditEmployees from "./EditEmployees";
+// import employeesListReducer from "../redux/reducer/allemployees"
 
 const Employees = (props)=>{
 
-  let baseURL = " http://localhost:4000/api";
+  let baseURL = "http://localhost:4000/api";
   const [employeeList,setEmployeeList] = useState([]);  
 
   useEffect(()=>{
     fetchEmployeesList();
-    props.fetchAllEmployees();
-  },[]);
+  },[]);               
 
   function fetchEmployeesList(){
     ((async () => {
       axios.get(`${baseURL}/employees`)
         .then((response) => {
           const data = response.data;
+         
           setEmployeeList(data);
+          console.log(data);
         })
         .catch((error) => {
           console.log(error);
@@ -47,7 +49,6 @@ const Employees = (props)=>{
 
 const onSubmitHandler= (e)=>{
   e.preventDefault();
-  
   let firstname = e.target.firstname.value;
   let lastname = e.target.lastname.value;
   let department=e.target.department.value;
@@ -56,70 +57,47 @@ const onSubmitHandler= (e)=>{
 
   (async ()=> { axios.post(`${baseURL}/employees/`,{firstname,lastname,department})})()
   .then(()=>fetchEmployeesList());  
-  
   }
 
+  // if no employee
+if(employeeList.length <1){
+  return(<> <div className = "headList"><h3 >Employee List</h3></div>
+  <div className = "boxEmp"> NONE </div>
+   <Link to="/addemployee"><div><button className="btnAdd">ADD NEW EMPLOYEE</button></div></Link>
+  </>)
+}
+else{
   return (<>
-    <h3 className = "EmpName" >Employee list</h3>
+    <div className = "headList"><h3 >Employee List</h3></div>
     <div className = "boxEmp">
-    {employeeList.map((employee)=>(
-        <div  className="eachBox" key={employee.id}>
-            
-        <Link to ={`/employee/${employee.id}`}>
-            <div value={employee.id}>Name : {employee.firstname} {employee.lastname}
-            <button value={employee.id}onClick={deleteEmp}>X</button>
-            </div>
-            
-        </Link>
-        <div>Department : {employee.department}</div>
-        </div>))}
+      <table className ="tbData">
+        <thead className = "EmpName"> 
+        <tr className ="headTb">
+          <th>Name</th>
+          <th>Department</th>
+          <th>Details</th>
+        </tr>
+        </thead>
+      <tbody >
+        {employeeList.map((employee)=>( 
+        <tr key ={employee.id}> 
+          <th>{employee.firstname} {employee.lastname}</th>
+          <th> {employee.department}</th>
+        <th>
+          <div>
+            <Link to ={`/employees/${employee.id}`}><button className = "BtnBox">Details</button></Link>
+            <button className = "BtnBox" value={employee.id}onClick={deleteEmp}>X</button>
+          </div>
+        </th>
+        </tr>
+        ))}
+       </tbody>
+        <tfoot> 
+          <tr ><th colSpan ="3"> <Link to="/addemployee"><div><button className="btnAdd">ADD NEW EMPLOYEE</button></div></Link></th></tr>
+          </tfoot>
+          </table>
         </div>
-
-        <form className="Add" onSubmit={onSubmitHandler}>
-          <label >First Name : </label>
-          <input type="text" name="firstname"  required></input><br />
-          <label >Last Name : </label>
-          <input type="text" name="lastname"  required></input><br />
-          <label >Department :</label>
-          <input type="text" name="department" required></input> <br />
-          <input type ="submit"></input>
-          </form>
-          
           </>)
+}};
 
-        
-}
-
- 
-   //  useEffect(()=>{
-    //     props.fetchAllEmployees();
-    // },[]);
-    // const EmployeeList = useSelector((state)=> state.EmployeeList);
-   
-//useSelector()는 리덕스 스토어의 데이터를 추출할 수 있으며, 개념적으로 mapStateToProps와 거의 같다.
-//connect함수를 이용하지 않고 리덕스의 state를 조회
-// /생성한 action을 useDispatch를 통해 발생시킬
-  // useEffect(()=>{
-  //     props.fetchEmployeesList()
-  // },[]) 
-  // not working, ,, ,
-
-
-const mapState =(state)=>{
-    return {
-        EmployeeList: state.EmployeeList
-    };
-};
-const mapDispatch=(dispatch)=>{
-    return {
-        fetchAllEmployees: ()=> dispatch(fetchAllEmployeesThunk()),
-    };
-};
-
-Employees.PropType={
-    fetchEmployeesList: PropType.func.isRequired,
-    EmployeeList:PropType.array.isRequired,
-}
-
-export default connect(mapState, mapDispatch)(Employees);
-// export default Employees;
+export default Employees;
