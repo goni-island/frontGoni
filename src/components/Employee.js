@@ -47,8 +47,9 @@ function fetchTaskList(){
 
 
   return (<>
+  
   <div className = "empInfo"><h3 >Employee # {employee.id} </h3></div>
-  <div className ="eachBox">
+
     <div className="test">
         <div className = "test1"> ID </div>
         <div className = "test2">{employee.id}</div>
@@ -61,27 +62,22 @@ function fetchTaskList(){
         <div className = "test1">department</div>
         <div className = "test2">{employee.department}</div>
     </div>
-    
-    <div className="test">
-        <div className = "test1">Task</div>
-        
+ 
+
+        <div className = "test3 test4">Task</div>
         {taskList.map((task)=>(
-            task.employeeId === employee.id ? (<div key ={task.id} className = "test2" >{task.description}</div>)
-            : <div className = "test2" > NONE </div>
+            task.employeeId === employee.id ? 
+            (<Link to ={`/tasks/${task.id}`}style = {{textDecoration: 'none'}} ><div key ={task.id} className = "test3 " >{task.description}</div></Link>)
+            : <div className = "test3" > NONE </div>
         ))}
+ 
 
-    </div>
 
-    <div className="test">
      <Link to ={`/editemployee/${employee.id}`}>
-        <div className ="pointer">
-     <button className ="buttest" >EDIT EMPLOYEE</button>
-     </div>
-
+        <button className ="buttest" >EDIT EMPLOYEE</button>
+    </Link>
+     <Link to ={`/employees/`} style = {{textDecoration: 'none',color:'black'}}><div className="linkinner">Back</div>
         </Link>
-    </div>
-    
-    </div>
     </>)};
 
 

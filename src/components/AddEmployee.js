@@ -24,7 +24,7 @@ const AddEmployee=()=>{
 // navigate('/employees')
 // export 'Navigate' (imported as 'Navigate') was not found in 'react-router-dom' (possible exports: BrowserRouter, HashRouter, Link, MemoryRouter, NavLink, Prompt, Redirect, Route, Router, StaticRouter, Switch, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter
 
-        return (
+        return (<>
         <form className="Add" onSubmit={onSubmitHandler}>
           <label >First Name : </label>
           <input type="text" name="firstname"  required></input><br />
@@ -35,7 +35,8 @@ const AddEmployee=()=>{
           {/* <Link to ="/employees"><input type ="submit"></input></Link> */}
           <div><input className ="Btnsub" type ="submit"></input></div>
           </form>
-           
+           <Link to ={`/employees/`} style = {{textDecoration: 'none',color:'black'}}><div className="linkinner">Back</div>
+           </Link></>
         )
     
 };

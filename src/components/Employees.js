@@ -68,6 +68,7 @@ if(employeeList.length <1){
 }
 else{
   return (<>
+  
     <div className = "headList"><h3 >Employee List</h3></div>
     <div className = "boxEmp">
       <table className ="tbData">
@@ -97,6 +98,9 @@ else{
           </tfoot>
           </table>
         </div>
+        <Link to ={`/`} style = {{textDecoration: 'none',color:'black'}}><div className="linkinner">Back</div>
+        </Link>
+           
           </>)
 }};
 
