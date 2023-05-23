@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
+
 const EditTasks=()=>{
 
     let baseURL = " http://localhost:4000/api";
@@ -83,7 +85,8 @@ const EditTasks=()=>{
           {/* <Link to ="/employees"><input type ="submit"></input></Link> */}
           <div><input className ="Btnsub" type ="submit"></input></div>
           </form>
-           
+          <Link to ={`/tasks/${id}`} style = {{textDecoration: 'none',color:'black'}}><div className="linkinner">Back</div>
+        </Link>
            </>)
 }
 export default EditTasks;

@@ -39,9 +39,15 @@ const Tasks = (props)=>{
       fetchTaskList();
   }
 
-
-    return (<>
-    <div className = "headList"><h3 >Tasks list</h3></div>
+  if(tasksList.length <1){
+    return(<> <div className = "headList"><h3 >Tasks List</h3></div>
+    <div className = "boxEmp"> NONE </div>
+     <Link to="/addtasks"><div><button className="btnAdd">ADD NEW TASK</button></div></Link>
+    </>)
+  }
+  else{
+ return (<>
+    <div className = "headList"><h3 >Tasks List</h3></div>
     <div className = "boxEmp">
       <table className ="tbData">
         <thead className = "EmpName"> 
@@ -74,9 +80,11 @@ const Tasks = (props)=>{
           </tfoot>
           </table>
         </div>
+        <Link to ={`/`} style = {{textDecoration: 'none',color:'black'}}><div className="linkinner">Back</div>
+        </Link>
     </>)
 
-}  
+}};
 export default Tasks;
 
 

@@ -33,10 +33,10 @@ else{
   return (<>
 
   <div className = "empInfo"><h3 >Task # {task.id} </h3></div>
-  <div className ="eachBox">
+
     <div className="test">
         <div className = "test1"> Assigned USER </div>
-        <div className = "test2"> {task.employee.firstname}{task.employee.lastname}</div>
+        <div className = "test2"><Link to ={`/employees/${task.employee.id}`}> {task.employee.firstname}{task.employee.lastname}</Link></div>
     </div>
     <div className="test">
         <div className = "test1">Priority Level</div>
@@ -50,17 +50,14 @@ else{
         <div className = "test1">Completion</div>
         <div className = "test2">{task.completion} </div>
     </div>
-    <div className="test">
-     <Link to ={`/edittask/${task.id}`}>
+
+    <Link to ={`/edittask/${task.id}`}>
         <div className ="pointer">
      <button className ="buttest" >EDIT TASK</button>
      </div>
-     
+     </Link>
+    <Link to ={`/tasks/`} style = {{textDecoration: 'none',color:'black'}}><div className="linkinner">Back</div>
         </Link>
-    </div>
-    
-    </div>
-    
 
 
     </>)};

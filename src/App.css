@@ -26,7 +26,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(5px + 2vmin);
 }
 
 .App-link {
@@ -62,7 +62,7 @@ color:Black;
 .boxEmp {
   color:black;
   width: 80vw;
-  background-color:rgb(234, 230, 230);
+  /* background-color:rgb(234, 230, 230); */
   padding:10px;
   border-radius: 10px;
   color:black;
@@ -132,11 +132,7 @@ h3{
   font-size: 25px;
 }
 
-.BtnBox{
-  width: 40%;
-  margin-right:5px;
-  color : 
-}
+
 
 
 
@@ -176,7 +172,6 @@ h3{
 
 .test{
   width:var(--width-table);
-  background-color: var(--color-background);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -202,8 +197,29 @@ h3{
   border-radius: 5px;
 }
 
-.buttest{
+.test3{
   width:calc(var(--width-table)*0.98);
+  margin-right: 5px;
+  border-radius: 5px;
+  border-color: black;
+  border:solid;
+  color:black;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.test4{
+  padding-top:20px;
+  padding-bottom:20px;
+  background-color: var(--color-green);
+  margin-top: 30px;
+  margin-bottom: 5px;
+  color: white;
+  margin-right: 5px;
+  border-radius: 10px; 
+}
+
+.buttest{
+  width:calc(var(--width-table)*0.25);
   border: solid;
   border-color: black;
   border-radius: 5px;
@@ -211,4 +227,42 @@ h3{
   font-weight: bold;
   font-size: 20px;
   cursor: pointer;
+  margin-top: 20px;
 }
+
+/* main */
+.boxCom{
+  width:var(--width-table);
+  /* background-color: black; */
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  /* text:white; */
+}
+
+.link{
+  width:calc(var(--width-table)*0.4) ;
+  background-color: black;
+  border-radius: 10px;
+  margin : 5px;
+  margin-top: 30px;
+  padding : 10px;
+
+
+}
+
+
+
+
+.linkinner{
+  width:calc(var(--width-table)*0.15);
+ padding : 4px;
+  border-radius: 10px;
+  border:solid;
+  margin-top:120px;
+  float:left; 
+}
+
